@@ -22,8 +22,13 @@ def power(x:float, n:int):
 #-----------------------
 def perrin(n:int):
     # your code goes here
-
-    return -1
+    if n == 0:
+        return 3
+    if n == 1:
+        return 0
+    if n == 2:
+        return 2
+    return perrin(n-2) + perrin(n-3)
 
 
 # solution to Exercise 3 
@@ -32,6 +37,12 @@ def count_in_list(my_list, n, target):
     """Return the count of the number of times target occurs in the first
     n elements of list my_list."""
     # your code goes here
-
-    return -1
+    if n == len(my_list):
+        n -= 1
+    increment = 0
+    if my_list[n] == target:
+        increment = 1
+    if n == 0:
+        return increment
+    return increment + count_in_list(my_list, n-1, target)
 

@@ -2,7 +2,7 @@
 SYSC 3101 Winter 2024
 Lab 1, Part 1, Test harness for exercises 1,2 and 3
 """
-from lab1 import power,count_in_list
+from lab1 import power,count_in_list, perrin
 
 # recursive power() function. If power() is correct, the two values
 # should be the same, or differ at most by a small amount.
@@ -16,7 +16,7 @@ def test_power(x:float, k:int):
     if abs(actual - expected) < 0.001:
         print("pass\n\n")
     else:
-        print("ERROR!\n\n");
+        print("ERROR!\n\n")
     
     return
 
@@ -37,8 +37,27 @@ def test_exercise_1():
 test_exercise_1()
 
 # for exercise 2 write your test cases to demo your code to the TA
+def test_perrin(n, expected):
+    print(f"calling perrin(n) with n = {n}\n")
+    print(f"expected result: {expected}\n")
+    actual = perrin(n)
+    print(f"actual result: {actual}")
+    if abs(actual - expected) < 0.001:
+        print("pass\n\n")
+    else:
+        print("ERROR!\n\n")
 
+def test_exercise_2():
+    print("*** Exercise 2: Testing Perrin function ***\n")
+    test_perrin(0,3)
+    test_perrin(1,0)
+    test_perrin(2,2)
+    test_perrin(3,3)
+    test_perrin(4,2)
+    test_perrin(5,5)
+    print()
 
+test_exercise_2()
 
 """ Exercise the recursive count_in_list function. 
  * Display the result we expect count_in_list() to return, followed by
@@ -87,4 +106,4 @@ def test_exercise_3():
     test_count_in_list(x, n, 6, 1)
     print()
 
-#test_exercise_3()
+test_exercise_3()
